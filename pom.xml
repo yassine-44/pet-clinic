@@ -57,7 +57,7 @@
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-core</artifactId>
-			<version>9.0.29</version>
+			<version>10.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -306,6 +306,24 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+			<plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>6.2.2</version>
+                <configuration>
+                    <format>ALL</format>
+                    <failBuildOnCVSS>7</failBuildOnCVSS>
+                    <cveValidForHours>168</cveValidForHours>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
 		</plugins>
 	</build>
 
